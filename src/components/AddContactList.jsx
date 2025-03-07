@@ -22,7 +22,7 @@ const AddContactList = ({ onAddContact }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 style={{color: "#1774ee"}}>Add Contact</h2>
+      <h2 style={{ color: "#1774ee" }}>Add Contact</h2>
       <input
         type="text"
         placeholder="Name"

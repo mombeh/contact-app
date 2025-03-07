@@ -26,14 +26,14 @@ export default function App() {
   return (
     <div className="container">
       <h1 className="header">Contact Manager</h1>
-     <div className="test-result">
-      <AddContactList onAddContact={addContact} />
-      <ContactList
-        contacts={contacts}
-        onDeleteContact={deleteContact}
-        onEditContact={editContact}
-      />
-     </div>
+      <div className="test-result">
+        <AddContactList onAddContact={addContact} />
+        <ContactList
+          contacts={contacts}
+          onDeleteContact={deleteContact}
+          onEditContact={editContact}
+        />
+      </div>
     </div>
   );
 }
