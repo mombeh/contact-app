@@ -4,7 +4,6 @@ import ContactItem from "./ContactItem";
 const ContactList = ({ contacts, onDeleteContact, onEditContact }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Filter contacts by name or email
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     contact.email.toLowerCase().includes(searchTerm.toLowerCase())
@@ -22,7 +21,6 @@ const ContactList = ({ contacts, onDeleteContact, onEditContact }) => {
         />
       </div>
 
-      {/* Display Search Results */}
       {filteredContacts.length > 0 ? (
         filteredContacts.map((contact) => (
           <ContactItem
