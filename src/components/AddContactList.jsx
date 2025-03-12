@@ -1,10 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { addContact } from "../redux/contactsSlice";
 
-const AddContactList = ({ onAddContact }) => {
+const AddContactList = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -13,8 +21,14 @@ const AddContactList = ({ onAddContact }) => {
       return;
     }
 
-    onAddContact({ id: Date.now(), name, email, phone });
 
+    // Dispatch action to Redux store
+    dispatch(addContact({ id: Date.now(), name, email, phone }));
+
+    // Navigate back to the contact list with the new contact
+    navigate("/");
+
+    // Clear the form
     setName("");
     setEmail("");
     setPhone("");
@@ -23,6 +37,7 @@ const AddContactList = ({ onAddContact }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 style={{ color: "#1774ee" }}>Add Contact</h2>
+
       <input
         type="text"
         placeholder="Name"
@@ -30,6 +45,7 @@ const AddContactList = ({ onAddContact }) => {
         onChange={(e) => setName(e.target.value)}
         className="input-text"
       />
+
       <input
         type="email"
         placeholder="Email"
@@ -37,6 +53,7 @@ const AddContactList = ({ onAddContact }) => {
         onChange={(e) => setEmail(e.target.value)}
         className="input-text"
       />
+
       <input
         type="tel"
         placeholder="Phone"
@@ -44,7 +61,10 @@ const AddContactList = ({ onAddContact }) => {
         onChange={(e) => setPhone(e.target.value)}
         className="input-text"
       />
-      <button type="submit" className="add-contact">Add</button>
+
+      <button type="submit" className="add-contact">
+        Add
+      </button>
     </form>
   );
 };

@@ -1,21 +1,16 @@
-const ContactItem = ({ contact, onDelete, onEdit }) => {
+const ContactItem = ({ contact, onEdit, onDelete }) => {
   return (
     <div>
       <div className="contacts">
         <div className="contact-names">
-          <div> <p>{contact.name}</p></div>
-          <div><p>{contact.email}</p></div>
-          <div><p>{contact.phone}</p></div>
+          <div><p><strong>Name:</strong>{contact.name}</p></div>
+          <div><p><strong>Email:</strong>{contact.email}</p></div>
+          <div><p><strong>Phone:</strong>{contact.phone}</p></div>
         </div>
         <div className="contact-delete">
           <div>
             <button
-              onClick={() => {
-                const newName = prompt("Edit Name", contact.name);
-                if (newName) {
-                  onEdit(contact.id, { ...contact, name: newName });
-                }
-              }}
+              onClick={() => onEdit(contact)}
               className="edit"
             >
               Edit
