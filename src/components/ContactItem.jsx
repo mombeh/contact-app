@@ -6,6 +6,7 @@ const ContactItem = ({ contact, onEdit, onDelete }) => {
           <div><p><strong>Name:</strong>{contact.name}</p></div>
           <div><p><strong>Email:</strong>{contact.email}</p></div>
           <div><p><strong>Phone:</strong>{contact.phone}</p></div>
+          <div><p><strong>Group:</strong>{contact.group}</p></div>
         </div>
         <div className="contact-delete">
           <div>

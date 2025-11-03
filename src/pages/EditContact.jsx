@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editContact } from "../redux/contactsSlice";
 import { useNavigate, useParams } from "react-router";
+import { toast } from "react-toastify";
 
 const EditContact = () => {
   const { id } = useParams();
@@ -15,12 +16,14 @@ const EditContact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [group, setGroup] = useState("");
 
   useEffect(() => {
     if (contactToEdit) {
       setName(contactToEdit.name);
       setEmail(contactToEdit.email);
       setPhone(contactToEdit.phone);
+      setGroup(contactToEdit.group || "");
     }
   }, [contactToEdit]);
 
@@ -28,7 +31,7 @@ const EditContact = () => {
     e.preventDefault();
 
     if (!name || !email || !phone) {
-      alert("Please fill all fields");
+      toast.error("Please fill all fields");
       return;
     }
 
@@ -39,7 +42,7 @@ const EditContact = () => {
         updatedContact: { id: parseInt(id), name, email, phone },
       })
     );
-
+    toast.success("Contact updated")
     navigate("/");
   };
 
@@ -72,6 +75,13 @@ const EditContact = () => {
         onChange={(e) => setPhone(e.target.value)}
         className="input-text"
       />
+
+      <select value={group} onChange={(e) => setGroup(e.target.value)}>
+        <option value="Family">Family</option>
+        <option value="Friends">Friends</option>
+        <option value="Work">Work</option>
+      </select>
+
 
       <button type="submit" className="add-contact">Save Changes</button>
     </form>
