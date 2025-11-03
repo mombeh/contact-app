@@ -18,7 +18,12 @@ const ContactItem = ({ contact, onEdit, onDelete }) => {
             </button>
           </div>
           <div>
-            <button onClick={() => onDelete(contact.id)} className="delete">Delete</button>
+            <button
+             onClick={() => onDelete(contact.id)} 
+             className="delete"
+             >
+              Delete
+              </button>
           </div>
         </div>
 
