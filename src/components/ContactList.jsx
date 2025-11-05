@@ -32,20 +32,32 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
     return matchSearch && matchGroup;
   });
 
-  // ✅ Handle Add
   const handleAddContact = (e) => {
     e.preventDefault();
-
+  
     if (!newContact.name || !newContact.email || !newContact.phone) return;
-
+  
+    // ✅ Check for duplicates (name OR email OR phone)
+    const isDuplicate = contacts.some(
+      (c) =>
+        c.name.toLowerCase() === newContact.name.toLowerCase() ||
+        c.email.toLowerCase() === newContact.email.toLowerCase() ||
+        c.phone === newContact.phone
+    );
+  
+    if (isDuplicate) {
+      alert("A contact with the same name, email, or phone already exists.");
+      return;
+    }
+  
     const contactToAdd = {
       ...newContact,
       id: Date.now(),
     };
-
+  
     onAdd(contactToAdd);
     setShowModal(false);
-
+  
     setNewContact({
       name: "",
       email: "",
@@ -53,6 +65,7 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
       group: "Family",
     });
   };
+  
 
   const openDeleteModal = (id) => {
     setContactToDelete(id);
