@@ -280,6 +280,42 @@ form {
   padding: 8px;
 }
 
+.modal-btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.modal-delete-btn {
+  background-color: #e45a5a;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.modal-cancel-btn {
+  background-color: #bdc3c7;
+  color: #333;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-cancel-btn:hover {
+  background-color: #a6a6a6;
+}
+
+
 .contacts {
   display: flex;
   justify-content: space-between;

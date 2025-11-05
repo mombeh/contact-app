@@ -6,13 +6,20 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterGroup, setFilterGroup] = useState("All");
   const [showModal, setShowModal] = useState(false);
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [contactToDelete, setContactToDelete] = useState(null);
+
+
   const [newContact, setNewContact] = useState({
     name: "",
     email: "",
     phone: "",
     group: "Family",
   });
-  
 
   const filteredContacts = contacts.filter((contact) => {
     const matchSearch =
@@ -25,6 +32,7 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
     return matchSearch && matchGroup;
   });
 
+  // ✅ Handle Add
   const handleAddContact = (e) => {
     e.preventDefault();
 
@@ -46,7 +54,42 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
     });
   };
 
+  const openDeleteModal = (id) => {
+    setContactToDelete(id);
+    setShowDeleteModal(true);
+  };
 
+  const handleConfirmDelete = () => {
+    onDelete(contactToDelete);
+    setShowDeleteModal(false);
+    setContactToDelete(null);
+  };
+
+
+  // ✅ Handle Edit
+  const handleEditContact = (e) => {
+    e.preventDefault();
+
+    onEdit(selectedId, { ...newContact, id: selectedId });
+    setShowModal(false);
+
+    setNewContact({
+      name: "",
+      email: "",
+      phone: "",
+      group: "Family",
+    });
+
+    setIsEditing(false);
+  };
+
+  // ✅ When user clicks “Edit”
+  const openEditModal = (contact) => {
+    setIsEditing(true);
+    setSelectedId(contact.id);
+    setNewContact(contact);
+    setShowModal(true);
+  };
 
   return (
     <div className="contact-container">
@@ -60,10 +103,22 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
         />
-        <button className="add-btn" onClick={() => setShowModal(true)}>
+
+        <button
+          className="add-btn"
+          onClick={() => {
+            setIsEditing(false);
+            setNewContact({
+              name: "",
+              email: "",
+              phone: "",
+              group: "Family",
+            });
+            setShowModal(true);
+          }}
+        >
           + Add
         </button>
-
       </div>
 
       <div className="filter-buttons">
@@ -85,8 +140,8 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
               <ContactItem
                 key={contact.id}
                 contact={contact}
-                onDelete={() => onDelete(contact.id)}
-                onEdit={() => onEdit(contact.id, contact)}
+                onDelete={() => openDeleteModal(contact.id)}
+                onEdit={() => openEditModal(contact)}
               />
             ))}
           </div>
@@ -94,10 +149,17 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
           <p className="no-result">No contacts found.</p>
         )}
       </div>
-      <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <h3 style={{ padding: "20px", fontSize: "25px" }}>Add Contact</h3>
 
-        <form className="modal-form" onSubmit={handleAddContact}>
+      {/* ✅ Modal handles both Add & Edit */}
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        <h3 style={{ padding: "20px", fontSize: "25px" }}>
+          {isEditing ? "Edit Contact" : "Add Contact"}
+        </h3>
+
+        <form
+          className="modal-form"
+          onSubmit={isEditing ? handleEditContact : handleAddContact}
+        >
           <input
             type="text"
             placeholder="Name"
@@ -137,11 +199,33 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
           </select>
 
           <button className="add-btn" type="submit">
-            Save Contact
+            {isEditing ? "Update Contact" : "Save Contact"}
           </button>
         </form>
+      </Modal>
+      <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(false)}>
+        <h3 style={{ padding: "15px", fontSize: "22px" }}>
+          Are you sure you want to delete this contact?
+        </h3>
+
+        <div className="modal-btn-group">
+          <button
+            className="modal-delete-btn"
+            onClick={handleConfirmDelete}
+          >
+            Yes, Delete
+          </button>
+
+          <button
+            className="modal-cancel-btn"
+            onClick={() => setShowDeleteModal(false)}
+          >
+            Cancel
+          </button>
+        </div>
 
       </Modal>
+
     </div>
   );
 };
