@@ -54,4 +54,22 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           # Change to 'master' if your main branch differs
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_JSX: true
+          VALIDATE_CSS: true
+
+          ESLINT_CONFIG_FILE: eslint.config.js
+
+          VALIDATE_JAVASCRIPT_PRETTIER: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_TYPESCRIPT: false
+          VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_JSON: false
+          VALIDATE_YAML: false
+          VALIDATE_XML: false
+          VALIDATE_HTML: false
+          VALIDATE_MARKDOWN: false
+          VALIDATE_GITHUB_ACTIONS: false
+          VALIDATE_CHECKOV: false
+          VALIDATE_DOCKERFILE: false
+          VALIDATE_SQL: false
