@@ -37,20 +37,6 @@ form {
   justify-self: center;
 }
 
-.edit-contact {
-  margin-top: 50px;
-  justify-self: center;
-}
-
-.input-text,
-.add-contact {
-  padding: 15px;
-  width: 100%;
-  margin-top: 30px;
-  border: none;
-  border: 1px solid #ddd9d9;
-  
-}
 .contact-container {
   width: 100%;
   max-width: 900px;
@@ -63,7 +49,6 @@ form {
   /* min-height: auto; */
   height: auto;
 }
-
 
 .contact-title {
   text-align: center;
@@ -175,25 +160,6 @@ form {
   gap: 10px;
 }
 
-.edit-btn,
-.delete-btn {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.edit-btn {
-  background: #1774ee;
-  color: white;
-}
-
-.delete-btn {
-  background: #d9534f;
-  color: white;
-}
-
 .contact-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -237,30 +203,6 @@ form {
   background-color: #c74141;
 }
 
-.input-text {
-  padding: 12px;
-  margin-top: 20px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-.add-contact {
-  padding: 15px;
-  width: 100%;
-  border: none;
-  background-color: #66a2f0;
-  color: #fff;
-  margin-top: 20px;
-  background-color: #1774ee;
-  border-radius: 8px;
-  font-size: 16px;
-  padding: 12px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
 .contain-result {
   display: block;
   padding: 20px;
@@ -268,16 +210,6 @@ form {
   box-shadow: 0 0 1px 3px #eee;
   background-color: #fff;
   border-radius: 10px;
-}
-
-.result {
-  display: flex;
-  gap: 65px;
-  width: 100%;
-  margin-top: 15px;
-  background-color: #1774ee;
-  color: #fff;
-  padding: 8px;
 }
 
 .modal-btn-group {
@@ -313,13 +245,6 @@ form {
 
 .modal-cancel-btn:hover {
   background-color: #a6a6a6;
-}
-
-
-.contacts {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
 }
 
 .input input {
@@ -463,17 +388,6 @@ form {
   border: none;
   font-size: 20px;
   cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .modal-form input,
