@@ -37,7 +37,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
   
     if (!newContact.name || !newContact.email || !newContact.phone) return;
   
-    // ✅ Check for duplicates (name OR email OR phone)
     const isDuplicate = contacts.some(
       (c) =>
         c.name.toLowerCase() === newContact.name.toLowerCase() ||
@@ -78,8 +77,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
     setContactToDelete(null);
   };
 
-
-  // ✅ Handle Edit
   const handleEditContact = (e) => {
     e.preventDefault();
 
@@ -96,7 +93,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
     setIsEditing(false);
   };
 
-  // ✅ When user clicks “Edit”
   const openEditModal = (contact) => {
     setIsEditing(true);
     setSelectedId(contact.id);
@@ -163,7 +159,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
         )}
       </div>
 
-      {/* ✅ Modal handles both Add & Edit */}
       <Modal show={showModal} onClose={() => setShowModal(false)}>
         <h3 style={{ padding: "20px", fontSize: "25px" }}>
           {isEditing ? "Edit Contact" : "Add Contact"}
