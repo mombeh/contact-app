@@ -46,7 +46,6 @@ form {
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: visible;
-  /* min-height: auto; */
   height: auto;
 }
 
@@ -54,7 +53,6 @@ form {
   text-align: center;
   color: #1774ee;
   margin-bottom: 25px;
-  /* font-size: 26px; */
 }
 
 .search-section {
@@ -70,8 +68,6 @@ form {
   padding: 10px 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  /* font-size: 16px; */
-  /* transition: 0.3s ease; */
 }
 
 .search-input:focus {
@@ -87,8 +83,6 @@ form {
   padding: 10px 18px;
   border-radius: 10px;
   cursor: pointer;
-  /* font-weight: 500; */
-  /* transition: 0.3s ease; */
   white-space: nowrap;
 }
 
@@ -107,7 +101,6 @@ form {
 .filter-btn {
   border: 1px solid #ccc;
   background: #f3f3f3;
-  /* color: #444; */
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
@@ -206,7 +199,6 @@ form {
 .contain-result {
   display: block;
   padding: 20px;
-  /* width: 800px; */
   box-shadow: 0 0 1px 3px #eee;
   background-color: #fff;
   border-radius: 10px;
@@ -255,8 +247,6 @@ form {
 }
 
 .contact-card {
-  /* display: flex; */
-  /* justify-content: space-between; */
   align-items: flex-start;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -312,50 +302,6 @@ form {
   background-color: #c74141;
 }
 
-.test-result {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 50px;
-  margin-top: 30px;
-  min-height: auto;
-  height: auto;
-}
-
-.add {
-  padding: 10px;
-  height: 35px;
-  margin-top: 10px;
-  width: 150px;
-  font-size: 10px;
-  color: #fff;
-  border: none;
-  background-color: #5ca2f2;
-  border-radius: 5px;
-
-  a {
-    color: #fff;
-    font-size: 18px;
-    text-decoration: none;
-    justify-self: center;
-   }
-
-  &:hover {
-    background-color: #1774ee;
-  }
-}
-
-.input {
-  display: flex;
-  width: 100%;
-  gap: 20px;
-}
-
-.contact-delete {
-  display: flex;
-  gap: 5px;
-}
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -403,7 +349,6 @@ form {
   margin-top: 20px;
   width: 100%;
 }
-
 
 @media (max-width: 768px) {
   .test-result,
