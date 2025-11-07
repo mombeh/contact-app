@@ -30,10 +30,10 @@
             VALIDATE_JAVASCRIPT_ES: true
             VALIDATE_JSX: true
 
+            USE_SUPER_LINTER_ESLINT_RULES: false
+
             DISABLE_LINTERS: "css,html,json,yaml,markdown"
-  
-            # Remove ALL "VALIDATE_* = false" entries!
-            
+              
             # ESLint config
             ESLINT_CONFIG_FILE: eslint.config.js
   
