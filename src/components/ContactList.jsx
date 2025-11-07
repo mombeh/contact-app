@@ -159,8 +159,8 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
         )}
       </div>
 
-      <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <h3
+      <Modal show={showModal} onClose={() => setShowModal(false)} showClose={true}>
+      <h3
           style={{
             padding: "20px",
             fontSize: "25px"
@@ -216,8 +216,8 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
           </button>
         </form>
       </Modal>
-      <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(false)}>
-        <h3
+      <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(false)} showClose={false}>
+      <h3
           style={{
             padding: "15px",
             fontSize: "22px"

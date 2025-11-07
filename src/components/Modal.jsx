@@ -1,13 +1,15 @@
-const Modal = ({ show, onClose, children }) => {
+const Modal = ({ show, onClose, children, showClose = true }) => {
   if (!show) return null;
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
 
-        <button className="modal-close" onClick={onClose}>
-          ✖
-        </button>
+        {showClose && (
+          <button className="modal-close" onClick={onClose}>
+            ✖
+          </button>
+        )}
 
         {children}
 
