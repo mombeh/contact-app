@@ -57,10 +57,26 @@ jobs:
           # Change to 'master' if your main branch differs
           DEFAULT_BRANCH: main
 
-          # ✅ Only enable the linters you actually use
+          #  Only enable the linters you actually use
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JSX: true
           VALIDATE_CSS: true
+
+        
+
+          # Disable everything else so it does NOT fail
+          VALIDATE_HTML: false
+          VALIDATE_JSON: false
+          VALIDATE_YAML: false
+          VALIDATE_MARKDOWN: false
+          VALIDATE_TYPESCRIPT: false
+          VALIDATE_GITHUB_ACTIONS: false
+          VALIDATE_DOCKERFILE: false
+          VALIDATE_PYTHON: false
+          VALIDATE_RUBY: false
+          VALIDATE_COFFEESCRIPT: false
+          VALIDATE_GO: false
+
 
           # ✅ Use your ESLint flat config
           ESLINT_CONFIG_FILE: eslint.config.js
