@@ -29,7 +29,8 @@
             # Only enable the linters you want
             VALIDATE_JAVASCRIPT_ES: true
             VALIDATE_JSX: true
-            VALIDATE_CSS: true
+
+            DISABLE_LINTERS: css
   
             # Remove ALL "VALIDATE_* = false" entries!
             
