@@ -34,29 +34,29 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
 
   const handleAddContact = (e) => {
     e.preventDefault();
-  
+
     if (!newContact.name || !newContact.email || !newContact.phone) return;
-  
+
     const isDuplicate = contacts.some(
       (c) =>
         c.name.toLowerCase() === newContact.name.toLowerCase() ||
         c.email.toLowerCase() === newContact.email.toLowerCase() ||
         c.phone === newContact.phone
     );
-  
+
     if (isDuplicate) {
       alert("A contact with the same name, email, or phone already exists.");
       return;
     }
-  
+
     const contactToAdd = {
       ...newContact,
       id: Date.now(),
     };
-  
+
     onAdd(contactToAdd);
     setShowModal(false);
-  
+
     setNewContact({
       name: "",
       email: "",
@@ -64,7 +64,7 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
       group: "Family",
     });
   };
-  
+
 
   const openDeleteModal = (id) => {
     setContactToDelete(id);
@@ -160,7 +160,11 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
       </div>
 
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <h3 style={{ padding: "20px", fontSize: "25px" }}>
+        <h3 style={{
+           padding: "20px",
+            fontSize: "25px"
+             }}
+             >
           {isEditing ? "Edit Contact" : "Add Contact"}
         </h3>
 
@@ -212,7 +216,11 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
         </form>
       </Modal>
       <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(false)}>
-        <h3 style={{ padding: "15px", fontSize: "22px" }}>
+        <h3 style={{
+          padding: "15px",
+          fontSize: "22px"
+        }}
+        >
           Are you sure you want to delete this contact?
         </h3>
 

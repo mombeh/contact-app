@@ -9,8 +9,10 @@ const ContactItem = ({ contact, onEdit, onDelete }) => {
       </div>
       <div className="contact-actions">
         <button onClick={() => onEdit(contact)} className="edit">Edit</button>
-        <button onClick={onDelete} className="delete">Delete</button>
-        </div>
+        <button onClick={() => onDelete(contact.id)} className="delete">
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
