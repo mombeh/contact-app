@@ -103,7 +103,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
   return (
     <div className="contact-container">
       <h2 className="contact-title">Contact List</h2>
-
       <div className="search-section">
         <input
           type="text"
@@ -129,7 +128,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
           + Add
         </button>
       </div>
-
       <div className="filter-buttons">
         {["All", "Family", "Friends", "Work"].map((g) => (
           <button
@@ -141,7 +139,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
           </button>
         ))}
       </div>
-
       <div className="contact-list">
         {filteredContacts.length > 0 ? (
           <div className="contact-grid">
@@ -158,9 +155,8 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
           <p className="no-result">No contacts found.</p>
         )}
       </div>
-
       <Modal show={showModal} onClose={() => setShowModal(false)} showClose={true}>
-      <h3
+        <h3
           style={{
             padding: "20px",
             fontSize: "25px"
@@ -168,7 +164,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
         >
           {isEditing ? "Edit Contact" : "Add Contact"}
         </h3>
-
         <form
           className="modal-form"
           onSubmit={isEditing ? handleEditContact : handleAddContact}
@@ -181,7 +176,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
               setNewContact({ ...newContact, name: e.target.value })
             }
           />
-
           <input
             type="email"
             placeholder="Email"
@@ -190,7 +184,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
               setNewContact({ ...newContact, email: e.target.value })
             }
           />
-
           <input
             type="text"
             placeholder="Phone"
@@ -199,7 +192,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
               setNewContact({ ...newContact, phone: e.target.value })
             }
           />
-
           <select
             value={newContact.group}
             onChange={(e) =>
@@ -210,14 +202,13 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
             <option>Friends</option>
             <option>Work</option>
           </select>
-
           <button className="add-btn" type="submit">
             {isEditing ? "Update Contact" : "Save Contact"}
           </button>
         </form>
       </Modal>
       <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(false)} showClose={false}>
-      <h3
+        <h3
           style={{
             padding: "15px",
             fontSize: "22px"
@@ -225,7 +216,6 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
         >
           Are you sure you want to delete this contact?
         </h3>
-
         <div className="modal-btn-group">
           <button
             className="modal-delete-btn"
@@ -241,9 +231,7 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
             Cancel
           </button>
         </div>
-
       </Modal>
-
     </div>
   );
 };

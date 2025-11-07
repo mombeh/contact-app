@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Load from localStorage
 const loadFromLocalStorage = () => {
   const savedContacts = localStorage.getItem("contacts");
   return savedContacts ? JSON.parse(savedContacts) : [];

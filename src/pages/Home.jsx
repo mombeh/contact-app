@@ -27,7 +27,6 @@ const Home = () => {
   return (
     <div className="container">
       <h1 className="header">Contact Manager</h1>
-
       <div className="test-result">
         <ContactList
           contacts={contacts}

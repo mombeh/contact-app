@@ -157,22 +157,6 @@ form {
   transition: background-color 0.2s ease;
 }
 
-/* .contact-actions .edit {
-  background-color: #1774ee;
-}
-
-.contact-actions .edit:hover {
-  background-color: #125cc1;
-}
-
-.contact-actions .delete {
-  background-color: #e45a5a;
-}
-
-.contact-actions .delete:hover {
-  background-color: #c74141;
-} */
-
 .contain-result {
   display: block;
   padding: 20px;
@@ -249,7 +233,6 @@ form {
 
 .contact-actions {
   display: flex;
-  /* gap: 8px; */
 }
 
 .contact-actions .edit,
@@ -313,13 +296,12 @@ form {
   width: 100%;
 }
 
-/* remove backgrounds and borders */
 .icon-btn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 5px;
-  font-size: 22px; /* icon size */
+  font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
