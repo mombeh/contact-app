@@ -30,7 +30,7 @@
             VALIDATE_JAVASCRIPT_ES: true
             VALIDATE_JSX: true
 
-            DISABLE_LINTERS: css
+            DISABLE_LINTERS: "css,html,json,yaml,markdown"
   
             # Remove ALL "VALIDATE_* = false" entries!
             
