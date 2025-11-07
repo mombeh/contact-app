@@ -160,11 +160,12 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
       </div>
 
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <h3 style={{
-           padding: "20px",
+        <h3
+          style={{
+            padding: "20px",
             fontSize: "25px"
-             }}
-             >
+          }}
+        >
           {isEditing ? "Edit Contact" : "Add Contact"}
         </h3>
 
@@ -216,10 +217,11 @@ const ContactList = ({ contacts, onDelete, onEdit, onAdd }) => {
         </form>
       </Modal>
       <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(false)}>
-        <h3 style={{
-          padding: "15px",
-          fontSize: "22px"
-        }}
+        <h3
+          style={{
+            padding: "15px",
+            fontSize: "22px"
+          }}
         >
           Are you sure you want to delete this contact?
         </h3>

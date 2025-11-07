@@ -133,24 +133,12 @@ form {
 .contact-grid {
   display: grid;
   gap: 20px;
-  /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
   margin-top: 20px;
 }
 
 .contact-actions {
   display: flex;
   gap: 10px;
-}
-
-.contact-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.contact-details {
-  margin-bottom: 15px;
-  line-height: 1.5;
-  color: #333;
 }
 
 .contact-details p {
